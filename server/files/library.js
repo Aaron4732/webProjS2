@@ -78,6 +78,31 @@ function appendGenraButtons(genre, element) {
 window.onload = function () {
   const xhr = new XMLHttpRequest();
   xhr.onload = function () {
-  }
+    const listElement = document.querySelector("nav>ul");
+
+    if (xhr.status === 200) {
+      const genres = JSON.parse(xhr.responseText);
+
+      loadMovies("All")
+      appendGenraButtons("All", listElement);
+
+      for (const genre of genres) {
+        appendGenraButtons(genre, listElement);
+      }
+      /* Task 1.3. Add the genre buttons to the listElement and 
+         initialize them with a click handler that calls the 
+         loadMovies(...) function above. */
+
+
+      /* When a first button exists, we click it to load all movies. */
+      const firstButton = document.querySelector("nav button");
+      if (firstButton) {
+        firstButton.click();
+      }
+    } else {
+      document.querySelector("body").append(`Daten konnten nicht geladen werden, Status ${xhr.status} - ${xhr.statusText}`);
+    }
+  };
+  xhr.open("GET", "/genres");
   xhr.send();
 };

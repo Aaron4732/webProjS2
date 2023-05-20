@@ -55,7 +55,7 @@ function putMovie() {
   const xhr = new XMLHttpRequest()
   xhr.onload = function() {
     if (xhr.status == 200 || xhr.status === 204) {
-      location.href = 'index.html'
+      location.href = 'library.html'
     } else {
       alert("Saving of movie data failed. Status code was " + response.status)
     }

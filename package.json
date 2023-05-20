@@ -2,7 +2,7 @@
   "name": "web-23-exercise-1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "home.js",
   "scripts": {
     "start": "node server/server.js",
     "start-nodemon": "nodemon server/server.js",
